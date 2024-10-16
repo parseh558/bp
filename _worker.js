@@ -4928,7 +4928,7 @@ function generateRemark(index, port, address, cleanIPs, protocol, configType) {
   let addressType;
   const type = configType ? ` ${configType}` : "";
   cleanIPs.includes(address) ? addressType = "Clean IP" : addressType = isDomain(address) ? "Domain" : isIPv4(address) ? "IPv4" : isIPv6(address) ? "IPv6" : "";
-  return `\u{2736} ${index} - ${protocol}${type} - ${addressType} : ${port}`;
+  return `\u{1F1E9}{1F31F}{1F1EA} ${index} - ${protocol}${type} - ${addressType} : ${port}`;
 }
 function isDomain(address) {
   const domainPattern = /^(?!\-)(?:[A-Za-z0-9\-]{1,63}\.?)+[A-Za-z]{2,}$/;
@@ -5484,7 +5484,7 @@ function renderHomePage(proxySettings, hostName, isPassSet) {
         </style>
     </head>
     <body>
-        <h1>Control Panel <span style="font-size: smaller;">${panelVersion}</span> \u{2736}</h1>
+        <h1>Control Panel <span style="font-size: smaller;">${panelVersion}</span> \u{1F1E9}{1F31F}{1F1EA}</h1>
         <div class="form-container">
             <form id="configForm">
                 <details open>
@@ -6683,7 +6683,7 @@ function renderLoginPage() {
     </head>
     <body>
         <div class="container">
-            <h1>Control Panel <span style="font-size: smaller;">${panelVersion}</span> \u{2736}</h1>
+            <h1>Control Panel <span style="font-size: smaller;">${panelVersion}</span> \u{1F1E9}{1F31F}{1F1EA}</h1>
             <div class="form-container">
                 <h2>User Login</h2>
                 <form id="loginForm">
@@ -6765,7 +6765,7 @@ function renderErrorPage(message2, error, refer) {
     </head>
     <body>
         <div id="error-container">
-            <h1>Control Panel <span style="font-size: smaller;">${panelVersion}</span> \u{2736}</h1>
+            <h1>Control Panel <span style="font-size: smaller;">${panelVersion}</span> \u{1F1E9}{1F31F}{1F1EA}</h1>
             <div id="error-message">
                 <h2>${message2} ${refer ? 'Please try again or refer to <a href="https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/README.md">documents</a>' : ""}
                 </h2>
@@ -6897,7 +6897,7 @@ async function buildWarpOutbounds(client, proxySettings, warpConfigs) {
     }
     if (client === "singbox" || client === "hiddify") {
       let singboxOutbound = buildSingBoxWarpOutbound(
-        client === "hiddify" ? `\u{2736} Warp Pro ${index + 1} \u{1F1EE}\u{1F1F7}` : `\u{2736} Warp ${index + 1} \u{1F1EE}\u{1F1F7}`,
+        client === "hiddify" ? `\u{1F1E9}{1F31F}{1F1EA} Warp Pro ${index + 1} \u{1F1EE}\u{1F1F7}` : `\u{1F1E9}{1F31F}{1F1EA} Warp ${index + 1} \u{1F1EE}\u{1F1F7}`,
         warpIPv6,
         privateKey,
         publicKey,
@@ -6914,7 +6914,7 @@ async function buildWarpOutbounds(client, proxySettings, warpConfigs) {
       warpOutbounds.push(singboxOutbound);
     }
     if (client === "clash") {
-      let clashOutbound = buildClashWarpOutbound(`\u{2736} Warp ${index + 1} \u{1F1EE}\u{1F1F7}`, warpIPv6, privateKey, publicKey, endpoint, reserved, "");
+      let clashOutbound = buildClashWarpOutbound(`\u{1F1E9}{1F31F}{1F1EA} Warp ${index + 1} \u{1F1EE}\u{1F1F7}`, warpIPv6, privateKey, publicKey, endpoint, reserved, "");
       warpOutbounds.push(clashOutbound);
     }
   });
@@ -6963,7 +6963,7 @@ async function buildWoWOutbounds(client, proxySettings, warpConfigs) {
       }
       if (client === "singbox" || client === "hiddify") {
         let singboxOutbound = buildSingBoxWarpOutbound(
-          i === 1 ? `proxy-${index + 1}` : client === "hiddify" ? `\u{2736} WoW Pro ${index + 1} \u{1F30D}` : `\u{2736} WoW ${index + 1} \u{1F30D}`,
+          i === 1 ? `proxy-${index + 1}` : client === "hiddify" ? `\u{1F1E9}{1F31F}{1F1EA} WoW Pro ${index + 1} \u{1F30D}` : `\u{1F1E9}{1F31F}{1F1EA} WoW ${index + 1} \u{1F30D}`,
           warpIPv6,
           privateKey,
           publicKey,
@@ -6981,7 +6981,7 @@ async function buildWoWOutbounds(client, proxySettings, warpConfigs) {
       }
       if (client === "clash") {
         let clashOutbound = buildClashWarpOutbound(
-          i === 1 ? `proxy-${index + 1}` : `\u{2736} WoW ${index + 1} \u{1F30D}`,
+          i === 1 ? `proxy-${index + 1}` : `\u{1F1E9}{1F31F}{1F1EA} WoW ${index + 1} \u{1F30D}`,
           warpIPv6,
           privateKey,
           publicKey,
@@ -7485,7 +7485,7 @@ function buildXrayConfig(proxySettings, remark, isFragment, isBalancer, isChain,
   return config;
 }
 async function buildXrayBestPingConfig(proxySettings, totalAddresses, chainProxy, outbounds, isFragment) {
-  const remark = isFragment ? "\u{2736} TUNEL F - Best Ping \u{1F4A5}" : "\u{2736} TUNEL - Best Ping \u{1F4A5}";
+  const remark = isFragment ? "\u{1F1E9}{1F31F}{1F1EA} TUNEL F - Best Ping \u{1F4A5}" : "\u{1F1E9}{1F31F}{1F1EA} TUNEL - Best Ping \u{1F4A5}";
   let config = buildXrayConfig(proxySettings, remark, isFragment, true, chainProxy, chainProxy ? "chain-2" : "prox-2");
   config.dns = await buildXrayDNS(proxySettings, totalAddresses, void 0);
   config.routing.rules = buildXrayRoutingRules(proxySettings, totalAddresses, chainProxy, true, false);
@@ -7513,7 +7513,7 @@ async function buildXrayBestFragmentConfig(proxySettings, hostName, chainProxy, 
     "80-100",
     "100-200"
   ];
-  let config = buildXrayConfig(proxySettings, "\u{2736} TUNEL F - Best Fragment \u{1F60E}", true, true, chainProxy, void 0, false);
+  let config = buildXrayConfig(proxySettings, "\u{1F1E9}{1F31F}{1F1EA} TUNEL F - Best Fragment \u{1F60E}", true, true, chainProxy, void 0, false);
   config.dns = await buildXrayDNS(proxySettings, [], hostName);
   config.routing.rules = buildXrayRoutingRules(proxySettings, [], chainProxy, true, false);
   const fragment = config.outbounds.shift();
@@ -7538,7 +7538,7 @@ async function buildXrayBestFragmentConfig(proxySettings, hostName, chainProxy, 
   return config;
 }
 async function buildXrayWorkerLessConfig(proxySettings) {
-  let config = buildXrayConfig(proxySettings, "\u{2736} TUNEL F - WorkerLess \u2B50", true, false, false, void 0, false);
+  let config = buildXrayConfig(proxySettings, "\u{1F1E9}{1F31F}{1F1EA} TUNEL F - WorkerLess \u2B50", true, false, false, void 0, false);
   config.dns = await buildXrayDNS(proxySettings, [], void 0, true);
   config.routing.rules = buildXrayRoutingRules(proxySettings, [], false, false, true);
   let fakeOutbound = buildXrayVLESSOutbound("fake-outbound", "google.com", "443", userID, "google.com", "google.com", "", true, false);
@@ -7631,7 +7631,7 @@ async function getXrayWarpConfigs(proxySettings, warpConfigs, client) {
   for (const [index, outbound] of xrayWarpOutbounds.entries()) {
     const endpoint = outbound.settings.peers[0].endpoint.split(":")[0];
     const proxyOutbound = structuredClone(outbound);
-    let warpConfig = buildXrayConfig(proxySettings, `\u{2736} Warp${proIndicator}${index + 1} \u{1F1EE}\u{1F1F7}`, false, false, false, void 0, true);
+    let warpConfig = buildXrayConfig(proxySettings, `\u{1F1E9}{1F31F}{1F1EA} Warp${proIndicator}${index + 1} \u{1F1EE}\u{1F1F7}`, false, false, false, void 0, true);
     warpConfig.dns = await buildXrayDNS(proxySettings, [endpoint], void 0, false, true);
     warpConfig.routing.rules = buildXrayRoutingRules(proxySettings, [endpoint], false, false, false);
     warpConfig.outbounds.unshift(proxyOutbound);
@@ -7641,7 +7641,7 @@ async function getXrayWarpConfigs(proxySettings, warpConfigs, client) {
   let proxyIndex = 1;
   for (const [index, outbound] of xrayWoWOutbounds.entries()) {
     const endpoint = outbound.settings.peers[0].endpoint.split(":")[0];
-    let WoWConfig = buildXrayConfig(proxySettings, `\u{2736} WoW${proIndicator}${proxyIndex} \u{1F30D}`, false, false, true, void 0, true);
+    let WoWConfig = buildXrayConfig(proxySettings, `\u{1F1E9}{1F31F}{1F1EA} WoW${proIndicator}${proxyIndex} \u{1F30D}`, false, false, true, void 0, true);
     WoWConfig.dns = await buildXrayDNS(proxySettings, [endpoint], void 0, false, true);
     WoWConfig.routing.rules = buildXrayRoutingRules(proxySettings, [endpoint], true, false, false);
     if (outbound.tag === "chain") {
@@ -7657,11 +7657,11 @@ async function getXrayWarpConfigs(proxySettings, warpConfigs, client) {
     }
   }
   const dnsObject = await buildXrayDNS(proxySettings, outboundDomains, void 0, false, true);
-  let xrayWarpBestPing = buildXrayConfig(proxySettings, `\u{2736} Warp${proIndicator}Best Ping \u{1F680}`, false, true, false, void 0, true);
+  let xrayWarpBestPing = buildXrayConfig(proxySettings, `\u{1F1E9}{1F31F}{1F1EA} Warp${proIndicator}Best Ping \u{1F680}`, false, true, false, void 0, true);
   xrayWarpBestPing.dns = dnsObject;
   xrayWarpBestPing.routing.rules = buildXrayRoutingRules(proxySettings, outboundDomains, false, true, false);
   xrayWarpBestPing.outbounds.unshift(...xrayWarpOutbounds);
-  let xrayWoWBestPing = buildXrayConfig(proxySettings, `\u{2736} WoW${proIndicator}Best Ping \u{1F680}`, false, true, true, void 0, true);
+  let xrayWoWBestPing = buildXrayConfig(proxySettings, `\u{1F1E9}{1F31F}{1F1EA} WoW${proIndicator}Best Ping \u{1F680}`, false, true, true, void 0, true);
   xrayWoWBestPing.dns = dnsObject;
   xrayWoWBestPing.routing.rules = buildXrayRoutingRules(proxySettings, outboundDomains, true, true, false);
   xrayWoWBestPing.outbounds.unshift(...xrayWoWOutbounds);
@@ -7832,7 +7832,7 @@ function buildClashChainOutbound(chainProxyParams) {
   }
   const { hostName, port, uuid, flow, security, type, sni, fp, alpn, pbk, sid, headerType, host, path, serviceName } = chainProxyParams;
   let chainOutbound = {
-    "name": "\u{2736} Chain Best Ping \u{1F4A5}",
+    "name": "\u{1F1E9}{1F31F}{1F1EA} Chain Best Ping \u{1F4A5}",
     "type": "vless",
     "server": hostName,
     "port": +port,
@@ -7840,7 +7840,7 @@ function buildClashChainOutbound(chainProxyParams) {
     "uuid": uuid,
     "flow": flow,
     "network": type,
-    "dialer-proxy": "\u{2736} Best Ping \u{1F4A5}"
+    "dialer-proxy": "\u{1F1E9}{1F31F}{1F1EA} Best Ping \u{1F4A5}"
   };
   if (security === "tls") {
     const tlsAlpns = alpn ? alpn?.split(",") : [];
@@ -7896,12 +7896,12 @@ async function getClashWarpConfig(proxySettings, warpConfigs) {
   config.rules = buildClashRoutingRules(proxySettings);
   const selector = config["proxy-groups"][0];
   const warpUrlTest = config["proxy-groups"][1];
-  selector.proxies = ["\u{2736} Warp Best Ping \u{1F680}", "\u{2736} WoW Best Ping \u{1F680}"];
-  warpUrlTest.name = "\u{2736} Warp Best Ping \u{1F680}";
+  selector.proxies = ["\u{1F1E9}{1F31F}{1F1EA} Warp Best Ping \u{1F680}", "\u{1F1E9}{1F31F}{1F1EA} WoW Best Ping \u{1F680}"];
+  warpUrlTest.name = "\u{1F1E9}{1F31F}{1F1EA} Warp Best Ping \u{1F680}";
   warpUrlTest.interval = +proxySettings.bestWarpInterval;
   config["proxy-groups"].push(structuredClone(warpUrlTest));
   const WoWUrlTest = config["proxy-groups"][2];
-  WoWUrlTest.name = "\u{2736} WoW Best Ping \u{1F680}";
+  WoWUrlTest.name = "\u{1F1E9}{1F31F}{1F1EA} WoW Best Ping \u{1F680}";
   const clashWarpOutbounds = await buildWarpOutbounds("clash", proxySettings, warpConfigs);
   const clashWOWpOutbounds = await buildWoWOutbounds("clash", proxySettings, warpConfigs);
   config.proxies = [...clashWarpOutbounds, ...clashWOWpOutbounds];
@@ -7951,8 +7951,8 @@ async function getClashNormalConfig(env, proxySettings, hostName) {
   config.rules = buildClashRoutingRules(proxySettings);
   const selector = config["proxy-groups"][0];
   const urlTest = config["proxy-groups"][1];
-  selector.proxies = ["\u{2736} Best Ping \u{1F4A5}"];
-  urlTest.name = "\u{2736} Best Ping \u{1F4A5}";
+  selector.proxies = ["\u{1F1E9}{1F31F}{1F1EA} Best Ping \u{1F4A5}"];
+  urlTest.name = "\u{1F1E9}{1F31F}{1F1EA} Best Ping \u{1F4A5}";
   urlTest.interval = +bestVLESSTrojanInterval;
   const Addresses = await getConfigAddresses(hostName, cleanIPs, enableIPv6);
   const customCdnAddresses = customCdnAddrs ? customCdnAddrs.split(",") : [];
@@ -8466,11 +8466,11 @@ async function getSingBoxWarpConfig(proxySettings, warpConfigs, client) {
   const warpOutbounds = await buildWarpOutbounds(client, proxySettings, warpConfigs);
   const WOWOutbounds = await buildWoWOutbounds(client, proxySettings, warpConfigs);
   const proIndicator = client === "hiddify" ? " Pro " : " ";
-  selector.outbounds = [`\u{2736} Warp${proIndicator}Best Ping \u{1F680}`, `\u{2736} WoW${proIndicator}Best Ping \u{1F680}`];
+  selector.outbounds = [`\u{1F1E9}{1F31F}{1F1EA} Warp${proIndicator}Best Ping \u{1F680}`, `\u{1F1E9}{1F31F}{1F1EA} WoW${proIndicator}Best Ping \u{1F680}`];
   config.outbounds.splice(2, 0, structuredClone(warpUrlTest));
   const WoWUrlTest = config.outbounds[2];
-  warpUrlTest.tag = `\u{2736} Warp${proIndicator}Best Ping \u{1F680}`;
-  WoWUrlTest.tag = `\u{2736} WoW${proIndicator}Best Ping \u{1F680}`;
+  warpUrlTest.tag = `\u{1F1E9}{1F31F}{1F1EA} Warp${proIndicator}Best Ping \u{1F680}`;
+  WoWUrlTest.tag = `\u{1F1E9}{1F31F}{1F1EA} WoW${proIndicator}Best Ping \u{1F680}`;
   config.outbounds.push(...warpOutbounds, ...WOWOutbounds);
   warpOutbounds.forEach((outbound) => {
     selector.outbounds.push(outbound.tag);
@@ -8527,9 +8527,9 @@ async function getSingBoxCustomConfig(env, proxySettings, hostName, client, isFr
   config.route.rule_set = rule_set;
   const selector = config.outbounds[0];
   const urlTest = config.outbounds[1];
-  selector.outbounds = ["\u{2736} Best Ping \u{1F4A5}"];
+  selector.outbounds = ["\u{1F1E9}{1F31F}{1F1EA} Best Ping \u{1F4A5}"];
   urlTest.interval = `${bestVLESSTrojanInterval}s`;
-  urlTest.tag = "\u{2736} Best Ping \u{1F4A5}";
+  urlTest.tag = "\u{1F1E9}{1F31F}{1F1EA} Best Ping \u{1F4A5}";
   const Addresses = await getConfigAddresses(hostName, cleanIPs, enableIPv6);
   const customCdnAddresses = customCdnAddrs ? customCdnAddrs.split(",") : [];
   const totalAddresses = [...Addresses, ...customCdnAddresses];
@@ -8635,7 +8635,7 @@ async function getNormalConfigs(proxySettings, hostName, client) {
     });
   });
   if (outProxy) {
-    let chainRemark = `#${encodeURIComponent("\u{2736} Chain proxy \u{1F517}")}`;
+    let chainRemark = `#${encodeURIComponent("\u{1F1E9}{1F31F}{1F1EA} Chain proxy \u{1F517}")}`;
     if (outProxy.startsWith("socks") || outProxy.startsWith("http")) {
       const regex = /^(?:socks|http):\/\/([^@]+)@/;
       const isUserPass = outProxy.match(regex);
